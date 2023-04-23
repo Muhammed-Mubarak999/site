@@ -1,6 +1,6 @@
 // Initialize Firebase
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-import { firebaseConfig } from './firebaseConfig.js';
+import { firebaseConfig } from 'firebaseConfig.js';
 
 firebase.initializeApp(firebaseConfig);
 firebase.analytics();
