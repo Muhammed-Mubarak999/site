@@ -1,6 +1,6 @@
 // Initialize Firebase
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-var firebaseConfig = {
+const firebaseConfig = {
   apiKey: "AIzaSyBsS-I3SDok19oYEPv4wYsixYdrwyH-lrI",
   authDomain: "mywebsite-5bd3e.firebaseapp.com",
   databaseURL: "https://mywebsite-5bd3e-default-rtdb.firebaseio.com",
@@ -12,36 +12,52 @@ var firebaseConfig = {
 };
 firebase.initializeApp(firebaseConfig);
 
-// Firebase authentication
-const auth = firebase.auth();
+// Get elements
+const loginForm = document.getElementById('login-form');
+const emailInput = document.getElementById('email');
+const passwordInput = document.getElementById('password');
+const loginButton = document.getElementById('login-button');
+const registerLink = document.getElementById('register-link');
+const forgotPasswordLink = document.getElementById('forgot-password-link');
 
-// Get references to DOM elements
-const loginDiv = document.getElementById("login");
-const emailInput = document.getElementById("email");
-const passwordInput = document.getElementById("password");
-const loginBtn = document.getElementById("login-btn");
-
-// Add event listeners
-loginBtn.addEventListener("click", login);
-
-// Show the login form
-loginDiv.style.display = "block";
-
-// Log in the user
-function login() {
+// Add login event listener
+loginForm.addEventListener('submit', (e) => {
+  e.preventDefault();
   const email = emailInput.value;
   const password = passwordInput.value;
-
-  auth.signInWithEmailAndPassword(email, password)
-    .then(() => {
-      const user = auth.currentUser;
-      if (user && user.emailVerified) { // if the user is signed in and their email is verified
-        window.location.href = "user.html";
-      } else if (user) { // if the user is signed in but their email is not verified
-        alert("Please verify your email address.");
-      } else { // if the user is not signed in
-        alert("Invalid email or password.");
+  firebase.auth().signInWithEmailAndPassword(email, password)
+    .then((userCredential) => {
+      // Check if user's email is verified
+      if (!userCredential.user.emailVerified) {
+        // If not verified, sign out user and display error message
+        firebase.auth().signOut();
+        alert('Please verify your email before logging in.');
+      } else {
+        // If verified, log in user
+        alert('Logged in successfully!');
+        window.location.href = 'dashboard.html'; // Redirect to dashboard page
       }
     })
-    .catch(error => alert(error.message));
-}
+    .catch((error) => {
+      alert(error.message);
+    });
+});
+
+// Add register link event listener
+registerLink.addEventListener('click', (e) => {
+  e.preventDefault();
+  window.location.href = 'register.html'; // Redirect to register page
+});
+
+// Add forgot password link event listener
+forgotPasswordLink.addEventListener('click', (e) => {
+  e.preventDefault();
+  const email = emailInput.value;
+  firebase.auth().sendPasswordResetEmail(email)
+    .then(() => {
+      alert('Password reset email sent!');
+    })
+    .catch((error) => {
+      alert(error.message);
+    });
+});
