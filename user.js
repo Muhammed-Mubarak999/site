@@ -12,76 +12,17 @@ var firebaseConfig = {
 };
 firebase.initializeApp(firebaseConfig);
 
-// Reference to the root of your database
-var rootRef = firebase.database().ref();
+// Get the logout button element
+var logoutBtn = document.getElementById('logout-btn');
 
-// Reference to the currently logged in user's data
-var currentUserRef;
-
-// Function to handle logout
-function logout() {
+// Add a click event listener to the logout button
+logoutBtn.addEventListener('click', function() {
   firebase.auth().signOut().then(function() {
-    // Redirect the user to the login page
+    // Redirect to login page
     window.location.href = "login.html";
   }).catch(function(error) {
-    console.error(error);
-  });
-}
-
-// Function to handle change password
-function changePassword() {
-  var newPassword = prompt("Enter your new password:");
-
-  // Check if the user entered a password
-  if (newPassword) {
-    // Update the user's password
-    firebase.auth().currentUser.updatePassword(newPassword).then(function() {
-      console.log("Password updated successfully.");
-    }).catch(function(error) {
-      console.error(error);
-    });
-  }
-}
-
-// Function to handle edit profile
-function editProfile() {
-  var newName = prompt("Enter your new name:");
-  var newEmail = prompt("Enter your new email:");
-
-  // Check if the user entered a name and email
-  if (newName && newEmail) {
-    // Update the user's data in the database
-    currentUserRef.update({
-      name: newName,
-      email: newEmail
-    }).then(function() {
-      console.log("Profile updated successfully.");
-    }).catch(function(error) {
-      console.error(error);
-    });
-  }
-}
-
-// Wait for the DOM to load
-document.addEventListener("DOMContentLoaded", function(event) {
-  // Check if the user is logged in
-  firebase.auth().onAuthStateChanged(function(user) {
-    if (user) {
-      // Get a reference to the current user's data in the database
-      currentUserRef = firebase.database().ref("users/" + user.uid);
-
-      // Add event listeners for the logout, change password, and edit profile buttons
-      document.getElementById("logoutBtn").addEventListener("click", logout);
-      document.getElementById("changePasswordBtn").addEventListener("click", changePassword);
-      document.getElementById("editProfileBtn").addEventListener("click", editProfile);
-
-      // Display the user's name on the page
-      currentUserRef.once("value", function(snapshot) {
-        document.getElementById("welcomeMsg").innerHTML = "Hello, " + snapshot.val().name + "!";
-      });
-    } else {
-      // Redirect the user to the login page
-      window.location.href = "login.html";
-    }
+    // Handle errors
+    console.log(error.message);
   });
 });
+
