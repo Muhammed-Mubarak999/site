@@ -80,6 +80,6 @@ auth.onAuthStateChanged((user) => {
     });
   } else {
     // User is not signed in, redirect to login page
-    window.location.href = "/test/login.html";
+    window.location.href = "/website/login.html";
   }
 });
