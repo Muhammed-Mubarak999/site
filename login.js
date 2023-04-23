@@ -1,4 +1,4 @@
-// Initialize Firebase SDK
+// Initialize Firebase
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
   apiKey: "AIzaSyBsS-I3SDok19oYEPv4wYsixYdrwyH-lrI",
@@ -10,40 +10,37 @@ const firebaseConfig = {
   appId: "1:1003118523115:web:858da7a075e54ba62f44ae",
   measurementId: "G-9L374M2C46"
 };
+
 firebase.initializeApp(firebaseConfig);
+firebase.analytics();
 
-// Get a reference to the Firebase Authentication service
-var auth = firebase.auth();
+// Get elements
+const emailInput = document.getElementById('email');
+const passwordInput = document.getElementById('password');
+const loginBtn = document.getElementById('login-btn');
 
-// Get a reference to the Firebase Realtime Database service
-var database = firebase.database();
+// Add login event
+loginBtn.addEventListener('click', e => {
+  // Get email and password
+  const email = emailInput.value;
+  const password = passwordInput.value;
 
-// Get references to the DOM elements
-var emailInput = document.getElementById("email");
-var passwordInput = document.getElementById("password");
-var loginBtn = document.getElementById("loginBtn");
-
-// Add event listeners
-loginBtn.addEventListener("click", function(event) {
-  event.preventDefault(); // Prevent the default form submission
-
-  var email = emailInput.value;
-  var password = passwordInput.value;
-
-  // Sign in the user with email and password
-  auth.signInWithEmailAndPassword(email, password)
-    .then(function(userCredential) {
-      // Check if the user's email is verified
-      if (userCredential.user.emailVerified) {
-        // Redirect to the user dashboard
-        window.location.href = "user.html";
+  // Sign in with email and password
+  firebase.auth().signInWithEmailAndPassword(email, password)
+    .then(userCredential => {
+      // Check if user's email is verified
+      if (!userCredential.user.emailVerified) {
+        // Sign out user
+        firebase.auth().signOut();
+        // Show error message
+        alert('Please verify your email to log in.');
       } else {
-        // Show an error message if the user's email is not verified
-        alert("Please verify your email address.");
+        // Redirect to user.html page
+        window.location.href = 'user.html';
       }
     })
-    .catch(function(error) {
-      // Show an error message if the user's credentials are invalid
-      alert("Invalid email or password.");
+    .catch(error => {
+      // Handle error
+      alert('Invalid email or password.');
     });
 });
