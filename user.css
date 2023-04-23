@@ -1,111 +1,97 @@
-/* Reset styles */
+/* reset default margin and padding */
 * {
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
 }
 
-/* Body styles */
+/* global styles */
 body {
   font-family: Arial, sans-serif;
   font-size: 16px;
   line-height: 1.5;
   color: #333;
-  background-color: #f2f2f2;
+  background-color: #f5f5f5;
 }
 
-/* Header styles */
+a {
+  text-decoration: none;
+  color: #007bff;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* header styles */
 header {
-  background-color: #333;
+  background-color: #007bff;
   color: #fff;
-  padding: 20px;
-  text-align: center;
-}
-
-header h1 {
-  font-size: 36px;
-  margin-bottom: 10px;
+  padding: 10px;
 }
 
 nav ul {
-  display: flex;
-  justify-content: center;
   list-style: none;
-  margin-bottom: 20px;
+  display: flex;
+  justify-content: flex-end;
 }
 
 nav li {
-  margin-right: 20px;
+  margin: 0 10px;
 }
 
 nav a {
   color: #fff;
-  text-decoration: none;
-  transition: all 0.2s ease-in-out;
 }
 
-nav a:hover {
-  color: #f2f2f2;
+h1 {
+  font-size: 2rem;
+  text-align: center;
+  margin-top: 20px;
 }
 
-/* Main styles */
+/* main styles */
 main {
-  max-width: 960px;
-  margin: 0 auto;
   padding: 20px;
 }
 
-main h2 {
-  font-size: 24px;
+section {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+  font-size: 1.5rem;
   margin-bottom: 10px;
 }
 
-/* Dashboard section styles */
-#dashboard {
-  background-color: #fff;
-  padding: 20px;
+p {
   margin-bottom: 20px;
 }
 
-#dashboard p {
-  margin-bottom: 20px;
-}
-
-#dashboard ul {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
+ul {
   list-style: none;
 }
 
-#dashboard li {
-  width: 45%;
-  margin-bottom: 20px;
-}
-
-#dashboard a {
-  display: block;
-  padding: 10px;
-  background-color: #333;
+/* logout button styles */
+#logout-btn {
+  background-color: #dc3545;
+  border: none;
   color: #fff;
-  text-align: center;
-  text-decoration: none;
-  transition: all 0.2s ease-in-out;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
 }
 
-#dashboard a:hover {
-  background-color: #f2f2f2;
-  color: #333;
+#logout-btn:hover {
+  background-color: #c82333;
 }
 
-/* Footer styles */
+/* footer styles */
 footer {
-  background-color: #333;
+  background-color: #007bff;
   color: #fff;
-  padding: 20px;
   text-align: center;
-}
-
-footer p {
-  margin-bottom: 0;
+  padding: 10px;
 }
