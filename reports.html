@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Share a Report</title>
+  <link rel="stylesheet" href="reports.css">
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>Report a Bug</h1>
+    </div>
+    <div class="content">
+      <div class="form">
+        <form id="report-form">
+          <div class="form-group">
+            <label for="report-title">Title</label>
+            <input type="text" id="report-title" name="title" required>
+          </div>
+          <div class="form-group">
+            <label for="report-severity">Severity</label>
+            <select id="report-severity" name="severity" required>
+              <option value="">-- Select Severity --</option>
+              <option value="low">Low</option>
+              <option value="medium">Medium</option>
+              <option value="high">High</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="report-description">Description</label>
+            <textarea id="report-description" name="description" rows="5" required></textarea>
+          </div>
+             <div class="form-group">
+            <label for="report-attachment">Attachment</label>
+            <input type="file" id="report-attachment" name="attachment">
+          </div>
+          <button type="submit">Submit Report</button>
+        </form>
+           <div class="reports">
+          <h2>Reports</h2>
+          <ul id="reports-list"></ul>
+          </div>
+      </div>
+    </div>
+  </div>
+  <script src="https://www.gstatic.com/firebasejs/8.3.2/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.3.2/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.3.2/firebase-database.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.3.2/firebase-storage.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.3.2/firebase-analytics.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.3.2/firebase.js"></script>
+  <script src="reports.js"></script>
+</body>
+</html>

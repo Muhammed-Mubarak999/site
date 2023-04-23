@@ -1,0 +1,150 @@
+/* Reset styles */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Global styles */
+
+body {
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  color: #333;
+  background-color: #f7f7f7;
+}
+
+a {
+  text-decoration: none;
+  color: #007bff;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+header {
+  background-color: #007bff;
+  color: #fff;
+  padding: 1rem;
+  text-align: center;
+}
+
+nav ul {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  margin-bottom: 1rem;
+}
+
+nav li {
+  margin-right: 1rem;
+}
+
+nav li:last-child {
+  margin-right: 0;
+}
+
+nav a {
+  color: #fff;
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+nav a:hover {
+  color: #f7f7f7;
+}
+
+main {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+p {
+  margin-bottom: 1rem;
+}
+
+.cta {
+  display: inline-block;
+  padding: 0.8rem 1.5rem;
+  background-color: #007bff;
+  color: #fff;
+  border-radius: 5px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.cta:hover {
+  background-color: #0056b3;
+}
+
+#hero {
+  background-image: url('https://picsum.photos/1600/900');
+  background-size: cover;
+  background-position: center;
+  color: #fff;
+  padding: 5rem;
+  text-align: center;
+}
+
+#hero h2 {
+  font-size: 4rem;
+  margin-bottom: 1rem;
+}
+
+#reports {
+  background-color: #fff;
+  padding: 2rem;
+  margin-bottom: 2rem;
+}
+
+#reports h2 {
+  margin-bottom: 1rem;
+}
+
+#reports ul {
+  list-style: none;
+  margin-bottom: 1rem;
+}
+
+#reports li {
+  margin-bottom: 0.5rem;
+}
+
+#reports a:hover {
+  color: #007bff;
+}
+
+#about {
+  background-color: #f7f7f7;
+  padding: 2rem;
+}
+
+#about h2 {
+  margin-bottom: 1rem;
+}
+
+footer {
+  background-color: #333;
+  color: #fff;
+  padding: 1rem;
+  text-align: center;
+}
+
+footer p {
+  margin-bottom: 0;
+}
