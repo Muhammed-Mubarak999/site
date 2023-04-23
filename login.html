@@ -1,22 +1,27 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
+<html>
+  <head>
     <meta charset="UTF-8">
-    <title>Login Form</title>
-    <link rel="stylesheet" href="login.css">
-</head>
-<body>
-    <h1>Login Form</h1>
-    <form id="login-form" >
-        <label for="email">Email:</label>
-        <input type="email" id="email" name="email" required><br><br>
-        <label for="password">Password:</label>
-        <input type="password" id="password" name="password" required><br><br>
-        <button type="submit" id="login-button">Login</button>
+    <title>Login Page</title>
+    <!-- Insert Firebase scripts here -->
+    <script src="https://www.gstatic.com/firebasejs/9.0.2/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.0.2/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.0.2/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.0.2/firebase-analytics.js"></script>
+  </head>
+  <body>
+    <!-- Login form here -->
+    <form>
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" required><br>
+
+      <label for="password">Password:</label>
+      <input type="password" id="password" name="password" required><br>
+
+      <button type="submit" id="loginBtn">Login</button>
     </form>
-    <br>
-    <p>Don't have an account? <a href="#" id="register-link">Register here</a>.</p>
-    <p>Forgot your password? <a href="#" id="forgot-password-link">Recover it here</a>.</p>
+
+    <!-- Insert your login script here -->
     <script src="login.js"></script>
-</body>
+  </body>
 </html>
