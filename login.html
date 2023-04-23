@@ -1,68 +1,30 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Login</title>
-  <!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
-  <script src="https://www.gstatic.com/firebasejs/8.6.2/firebase-app.js"></script>
-
-  <!-- If you enabled Analytics in your project, add the Firebase SDK for Analytics -->
-  <script src="https://www.gstatic.com/firebasejs/8.6.2/firebase-analytics.js"></script>
-
-  <!-- Add Firebase products that you want to use -->
-  <script src="https://www.gstatic.com/firebasejs/8.6.2/firebase-auth.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/8.6.2/firebase-database.js"></script>
-
-  <script>
-    // Initialize Firebase
-  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-var firebaseConfig = {
-  apiKey: "AIzaSyBsS-I3SDok19oYEPv4wYsixYdrwyH-lrI",
-  authDomain: "mywebsite-5bd3e.firebaseapp.com",
-  databaseURL: "https://mywebsite-5bd3e-default-rtdb.firebaseio.com",
-  projectId: "mywebsite-5bd3e",
-  storageBucket: "mywebsite-5bd3e.appspot.com",
-  messagingSenderId: "1003118523115",
-  appId: "1:1003118523115:web:858da7a075e54ba62f44ae",
-  measurementId: "G-9L374M2C46"
-};
-    firebase.initializeApp(firebaseConfig);
-
-    // Get a reference to the database service
-    var database = firebase.database();
-
-    function login() {
-      var email = document.getElementById("email").value;
-      var password = document.getElementById("password").value;
-
-      firebase.auth().signInWithEmailAndPassword(email, password)
-        .then((userCredential) => {
-          // Signed in
-          var user = userCredential.user;
-          if (user.emailVerified) {
-            // Redirect to user.html if email is verified
-            window.location.href = "user.html";
-          } else {
-            // Email is not verified, show an error message
-            alert("Please verify your email address.");
-          }
-        })
-        .catch((error) => {
-          var errorCode = error.code;
-          var errorMessage = error.message;
-          alert(errorMessage);
-        });
-    }
-  </script>
+  <link rel="stylesheet" href="login.css">
 </head>
 <body>
-  <div>
-    <h1>Login</h1>
-    <label for="email">Email:</label>
-    <input type="email" id="email" name="email" required><br><br>
-    <label for="password">Password:</label>
-    <input type="password" id="password" name="password" required><br><br>
-    <button onclick="login()">Login</button>
+  <div class="container">
+    <div class="header">
+      <h1>Login</h1>
+    </div>
+    <div class="content">
+      <div id="login" class="login">
+        <input type="email" id="email" placeholder="Email">
+        <input type="password" id="password" placeholder="Password">
+        <button id="login-btn">Login</button>
+        <p>Don't have an account? <a href="signup.html">Sign Up</a></p>
+      </div>
+    </div>
   </div>
+  <script src="https://www.gstatic.com/firebasejs/8.3.2/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.3.2/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.3.2/firebase-database.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.3.2/firebase-analytics.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.3.2/firebase.js"></script>
+  <script src="login.js"></script>
 </body>
 </html>
