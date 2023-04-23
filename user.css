@@ -1,97 +1,57 @@
-/* reset default margin and padding */
-* {
+body {
+  background-image: url('https://source.unsplash.com/random');
+  background-repeat: no-repeat;
+  background-size: cover;
   margin: 0;
   padding: 0;
+  height: 100%;
 }
 
-/* global styles */
-body {
-  font-family: Arial, sans-serif;
-  font-size: 16px;
-  line-height: 1.5;
-  color: #333;
-  background-color: #f5f5f5;
-}
-
-a {
-  text-decoration: none;
-  color: #007bff;
-}
-
-a:hover {
-  text-decoration: underline;
-}
-
-/* header styles */
 header {
-  background-color: #007bff;
-  color: #fff;
-  padding: 10px;
+  background-color: #333;
+  color: white;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 nav ul {
   list-style: none;
   display: flex;
-  justify-content: flex-end;
 }
 
 nav li {
-  margin: 0 10px;
+  margin-right: 20px;
 }
 
 nav a {
-  color: #fff;
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 18px;
 }
 
-h1 {
-  font-size: 2rem;
-  text-align: center;
-  margin-top: 20px;
+#home a {
+  font-weight: normal;
 }
 
-/* main styles */
 main {
+  flex: 1;
   padding: 20px;
 }
 
-section {
-  background-color: #fff;
-  padding: 20px;
-  border-radius: 5px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+#dashboard {
+  max-width: 800px;
+  margin: auto;
 }
 
-h2 {
-  font-size: 1.5rem;
-  margin-bottom: 10px;
-}
-
-p {
-  margin-bottom: 20px;
-}
-
-ul {
-  list-style: none;
-}
-
-/* logout button styles */
-#logout-btn {
-  background-color: #dc3545;
-  border: none;
-  color: #fff;
-  padding: 10px 20px;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-#logout-btn:hover {
-  background-color: #c82333;
-}
-
-/* footer styles */
 footer {
-  background-color: #007bff;
-  color: #fff;
+  background-color: #333;
+  color: white;
+  padding: 20px;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
   text-align: center;
-  padding: 10px;
 }
