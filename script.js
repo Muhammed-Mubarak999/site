@@ -1,1 +1,1 @@
-javascript:confirm(1);
+/javascript:confirm(1)
