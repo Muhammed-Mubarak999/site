@@ -1,0 +1,1 @@
+javascript:confirm(1);
